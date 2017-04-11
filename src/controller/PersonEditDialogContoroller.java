@@ -2,6 +2,8 @@ package controller;
 
 import beans.Person;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import logic.util.DateUtil;
@@ -115,9 +117,27 @@ private boolean isInputVailed(){
 		errorMassage +="No valid street!\n";
 	}
 	if(birthdayField.getText()==null || birthdayField.getText().length() ==0 ){
+		errorMassage +="No valid birthday!\n";
+	}else{
+		if (!DateUtil.vaildDate(birthdayField.getText())){
+			errorMassage += "No valid birthday. Use the format yyyy.mm.dd!";
+		}
+	}
+	if (errorMassage.length() == 0 ){
+		return true;
+	}else{
+		//show error massage.
+		Alert alert =new Alert(AlertType.ERROR);
+		alert.initOwner(dialogStage);
+		alert.setTitle("Invalid Fields");
+		alert.setHeaderText("Please correct invalid fields");
+		alert.setContentText(errorMassage);
+
+		alert.showAndWait();
+
+		return false;
 
 	}
-	return false;
 }
-     akosajopdjsaop
+
 }
