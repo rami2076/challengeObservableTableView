@@ -104,12 +104,20 @@ private boolean isInputVailed(){
 	}
 	if(postalCodeField.getText() == null || postalCodeField.getText().length() ==0 ){
 		errorMassage +="No valid street!\n";
+	}else{
+		try{
+			Integer.parseInt(postalCodeField.getText());
+		}catch(NumberFormatException e){
+			errorMassage +="No valid postal code (must be an integer) !\n";
+		}
 	}
 	if(cityField.getText() == null || cityField.getText().length() ==0 ){
 		errorMassage +="No valid street!\n";
 	}
-	if(birthdayField.getText()==null || birthdayField.getText().length() ==0 )
+	if(birthdayField.getText()==null || birthdayField.getText().length() ==0 ){
+
+	}
 	return false;
 }
-
+     akosajopdjsaop
 }
