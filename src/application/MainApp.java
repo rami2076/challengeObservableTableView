@@ -105,4 +105,9 @@ public class MainApp extends Application {
 	 public ObservableList<Person> getPersonData() {
 	        return personData;
 	    }
+public boolean showPersonEditDialog(Person person){
+
+return true;
+}
+
 }
