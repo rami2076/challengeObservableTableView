@@ -1,0 +1,10 @@
+# "#" で始まる行はコメント
+
+# classファイルは要らない
+*.class
+# binフォルダは要らない
+bun/
+# パッケージフォルダ内の .ts ファイルは要らない
+#package/**/*.ts
+# nuget.exe は必用なファイル
+#!/.nuget/nuget.exe
