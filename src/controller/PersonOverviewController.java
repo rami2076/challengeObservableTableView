@@ -126,6 +126,19 @@ public class PersonOverviewController {
 		}
 	}
 
-aaaaaaaaatesttestetstet
+/**
+ *
+ * called when the user click on the new button. open edit dialog to edit.
+ *
+ *
+ */
+@FXML
+private void handleNewPerson(){
+	Person tempPerson = new Person();
+	boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
+	if (okClicked){
+		mainApp.getPersonData().add(tempPerson);
+	}
+}
 
 }
