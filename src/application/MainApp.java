@@ -105,6 +105,14 @@ public class MainApp extends Application {
 	 public ObservableList<Person> getPersonData() {
 	        return personData;
 	    }
+/**
+ * Opens a  dialogs  to edit details for the specifield person. if the  user
+ * clickes OK,  the changes are saved into the provided person object and true
+ * is returned.
+ *
+ * @param person the peson object tobe edited.
+ * @return true if the user clicked OK, false otherwise.
+ */
 public boolean showPersonEditDialog(Person person){
 
 return true;
