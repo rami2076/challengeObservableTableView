@@ -5,7 +5,7 @@ package application;
 import java.io.IOException;
 
 import beans.Person;
-import controller.PersonEditDialogContoroller;
+import controller.PersonEditDialogController;
 import controller.PersonOverviewController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -135,7 +135,7 @@ public class MainApp extends Application {
 			dialogStage.setScene(scene);
 
 			//Set the person into the controller .
-			PersonEditDialogContoroller controller = loader.getController();
+			PersonEditDialogController controller = loader.getController();
 			controller.setDialogStage(dialogStage);
 			controller.setPerson(person);
 
