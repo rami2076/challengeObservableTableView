@@ -2,7 +2,10 @@ package application;
 
 
 
+import java.io.IOException;
+
 import beans.Person;
+import controller.PersonEditDialogController;
 import controller.PersonOverviewController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -11,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
@@ -69,9 +73,9 @@ public class MainApp extends Application {
 			rootLayout.setCenter(personOverView);
 
 
-			  // Give the controller access to the main app.
-	        PersonOverviewController controller = loader.getController();
-	        controller.setMainApp(this);
+			// Give the controller access to the main app.
+			PersonOverviewController controller = loader.getController();
+			controller.setMainApp(this);
 
 
 		}catch(Exception e){
@@ -99,23 +103,50 @@ public class MainApp extends Application {
 		personData.add(new Person("i","j") );
 	}
 	/**
-     * Returns the data as an observable list of Persons.
-     * @return
-     */
-	 public ObservableList<Person> getPersonData() {
-	        return personData;
-	    }
-/**
- * Opens a  dialogs  to edit details for the specifield person. if the  user
- * clickes OK,  the changes are saved into the provided person object and true
- * is returned.
- *
- * @param person the peson object tobe edited.
- * @return true if the user clicked OK, false otherwise.
- */
-public boolean showPersonEditDialog(Person person){
+	 * Returns the data as an observable list of Persons.
+	 * @return
+	 */
+	public ObservableList<Person> getPersonData() {
+		return personData;
+	}
+	/**
+	 * Opens a  dialogs  to edit details for the specifield person. if the  user
+	 * clickes OK,  the changes are saved into the provided person object and true
+	 * is returned.
+	 *
+	 * @param person the peson object tobe edited.
+	 * @return true if the user clicked OK, false otherwise.
+	 */
+	public boolean showPersonEditDialog(Person person){
+		try{
+			//road the xml file and create a new stage for the popup dialog.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("view/personEditDialog.fxml"));
+			//original source:: ↓HACK::↑
+			//loader.setLocation(MainApp.class.getResource("view.personEditDialog.fxml"));
+			AnchorPane page = (AnchorPane) loader.load();
 
-return true;
-}
+			//create the dialog Stage.
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Edit Person");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(primaryStage);
+			Scene scene = new Scene(page);
+			dialogStage.setScene(scene);
+
+			//Set the person into the controller .
+			PersonEditDialogController controller = loader.getController();
+			controller.setDialogStage(dialogStage);
+			controller.setPerson(person);
+
+			//show the dailog and wait until the user close it.
+			dialogStage.showAndWait();
+
+			return controller.isOkClicked();
+		}catch(IOException e ){
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 }
