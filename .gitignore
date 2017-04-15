@@ -3,7 +3,7 @@
 # classファイルは要らない
 *.class
 # binフォルダは要らない
-bun/
+bin/
 # パッケージフォルダ内の .ts ファイルは要らない
 #package/**/*.ts
 # nuget.exe は必用なファイル

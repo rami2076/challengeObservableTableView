@@ -3,8 +3,8 @@ package controller;
 import beans.Person;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import logic.util.DateUtil;
 
@@ -13,7 +13,7 @@ import logic.util.DateUtil;
  * @author nyx
  *
  */
-public class PersonEditDialogContoroller {
+public class PersonEditDialogController {
 	@FXML
 	private TextField firstNameField;
 	@FXML
@@ -39,9 +39,12 @@ public class PersonEditDialogContoroller {
 	 */
 	@FXML
 	private void Initialize(){
-
-
 	}
+	public void setDialogStage(Stage dialogStage){
+		this .dialogStage = dialogStage;
+	}
+
+
 
 	/**
 	 * Sets the person  to be edited in the dialog.

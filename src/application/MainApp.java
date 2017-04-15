@@ -121,9 +121,9 @@ public class MainApp extends Application {
 		try{
 			//road the xml file and create a new stage for the popup dialog.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("view/personEditDialog.fxml"));
+			//loader.setLocation(getClass().getResource("view/personEditDialog.fxml"));
 			//original source:: ↓HACK::↑
-			//loader.setLocation(MainApp.class.getResource("view.personEditDialog.fxml"));
+			loader.setLocation(MainApp.class.getResource("view/PersonEditDialog.fxml"));
 			AnchorPane page = (AnchorPane) loader.load();
 
 			//create the dialog Stage.
