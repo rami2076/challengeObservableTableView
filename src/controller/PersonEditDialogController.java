@@ -3,8 +3,8 @@ package controller;
 import beans.Person;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import logic.util.DateUtil;
 
@@ -34,7 +34,7 @@ public class PersonEditDialogController {
 
 
 	/**
-	 * Initializes the contoroller class. this method is automatically called
+	 * Initializes the controller class. this method is automatically called
 	 * after the fxml file has been loaded.
 	 */
 	@FXML
