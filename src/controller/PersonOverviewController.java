@@ -125,7 +125,11 @@ public class PersonOverviewController {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * Called when the user click on the edit button. Open a dialog to edit
+ * details for the slected person.
+ */
+@FXML
 	private void handleEditPerson() {
 	    Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
 	    if (selectedPerson != null) {

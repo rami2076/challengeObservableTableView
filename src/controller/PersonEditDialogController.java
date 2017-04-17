@@ -40,6 +40,11 @@ public class PersonEditDialogController {
 	@FXML
 	private void Initialize(){
 	}
+	/**
+	 * Sets the stage of  this dialog.
+	 *
+	 * @param dialogStage
+	 */
 	public void setDialogStage(Stage dialogStage){
 		this .dialogStage = dialogStage;
 	}
@@ -74,7 +79,7 @@ public class PersonEditDialogController {
 	}
 
 	/**
-	 * Called when the userClicked.
+	 * Called when the user clicks ok.
 	 */
 	@FXML
 	private void handleOk(){
@@ -90,6 +95,17 @@ public class PersonEditDialogController {
 			dialogStage.close();
 		}
 	}
+
+	/**
+	 * Called when the user clicks cancel .
+	 */
+	@FXML
+	private void handleCancel(){
+		dialogStage.close();
+	}
+
+
+
 /**
  * Vailedates the user input in the text fields.
  *
